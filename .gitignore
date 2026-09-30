@@ -1,0 +1,55 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C extensions
+*.so
+
+# Distribution / packaging
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Virtual Environments
+venv/
+env/
+ENV/
+.env
+
+# Unit test / coverage
+.coverage
+htmlcov/
+.pytest_cache/
+
+# Storage and Scraped Output Files
+Level-3/tasks_storage.json
+Level-3/tasks_export.txt
+Level-3/*.bak
+Level-3/*.csv
+Level-3/scraped_quotes.json
+Level-3/scraped_books.json
+
+# Editor directories and files
+.idea/
+.vscode/
+*.sublime-project
+*.sublime-workspace
+.DS_Store
+Thumbs.db
+Desktop.ini
