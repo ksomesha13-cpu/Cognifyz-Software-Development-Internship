@@ -1,5 +1,10 @@
 # Cognifyz Technologies - Software Development Internship 🚀
 
+[![Live Website](https://img.shields.io/badge/Live%20Demo-Website%20Active-brightgreen.svg?style=for-the-badge&logo=google-chrome)](https://ksomesha13-cpu.github.io/Cognifyz-Software-Development-Internship/)
+[![GitHub Repo](https://img.shields.io/badge/GitHub-Repository-blue.svg?style=for-the-badge&logo=github)](https://github.com/ksomesha13-cpu/Cognifyz-Software-Development-Internship)
+
+🌐 **Live Interactive Website:** **[https://ksomesha13-cpu.github.io/Cognifyz-Software-Development-Internship/](https://ksomesha13-cpu.github.io/Cognifyz-Software-Development-Internship/)**
+
 ![Python Version](https://img.shields.io/badge/Python-3.11+-blue.svg)
 ![Status](https://img.shields.io/badge/Internship-Completed-brightgreen.svg)
 ![Tests](https://img.shields.io/badge/Unit%20Tests-19%2F19%20Passing-success.svg)
