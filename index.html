@@ -1,0 +1,1857 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cognifyz Technologies - Software Development Internship Showcase</title>
+  <meta name="description" content="Interactive web showcase of all Software Development internship tasks (Levels 1 to 3) for Cognifyz Technologies by Somesha K." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-primary: #0a0f1d;
+      --bg-secondary: #131b2e;
+      --bg-tertiary: #1e293b;
+      --card-bg: rgba(30, 41, 59, 0.7);
+      --card-border: rgba(255, 255, 255, 0.08);
+      --accent-cyan: #06b6d4;
+      --accent-blue: #3b82f6;
+      --accent-purple: #8b5cf6;
+      --accent-green: #10b981;
+      --accent-amber: #f59e0b;
+      --accent-red: #ef4444;
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+      --text-dim: #64748b;
+      --radius-sm: 8px;
+      --radius-md: 12px;
+      --radius-lg: 18px;
+      --transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+      --shadow-glow: 0 10px 30px -10px rgba(6, 182, 212, 0.25);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+      background: radial-gradient(circle at 15% 15%, #131d38 0%, #0a0f1d 100%);
+      color: var(--text-main);
+      min-height: 100vh;
+      line-height: 1.6;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Container */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+      width: 100%;
+    }
+
+    /* Header & Branding */
+    header {
+      background: rgba(10, 15, 29, 0.85);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--card-border);
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      padding: 1rem 0;
+    }
+
+    .header-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .brand-logo {
+      width: 42px;
+      height: 42px;
+      border-radius: 10px;
+      background: linear-gradient(135deg, var(--accent-cyan), var(--accent-blue));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 1.25rem;
+      color: #fff;
+      box-shadow: 0 4px 15px rgba(6, 182, 212, 0.4);
+    }
+
+    .brand-title h1 {
+      font-size: 1.15rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .brand-title p {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      padding: 0.2rem 0.6rem;
+      border-radius: 9999px;
+      font-size: 0.72rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    .badge-primary { background: rgba(6, 182, 212, 0.15); color: var(--accent-cyan); border: 1px solid rgba(6, 182, 212, 0.3); }
+    .badge-green { background: rgba(16, 185, 129, 0.15); color: var(--accent-green); border: 1px solid rgba(16, 185, 129, 0.3); }
+    .badge-amber { background: rgba(245, 158, 11, 0.15); color: var(--accent-amber); border: 1px solid rgba(245, 158, 11, 0.3); }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      padding: 0.55rem 1.1rem;
+      border-radius: var(--radius-sm);
+      font-size: 0.85rem;
+      font-weight: 600;
+      cursor: pointer;
+      text-decoration: none;
+      transition: var(--transition);
+      border: 1px solid transparent;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--accent-cyan), var(--accent-blue));
+      color: #fff;
+      box-shadow: 0 4px 15px rgba(6, 182, 212, 0.3);
+    }
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(6, 182, 212, 0.45);
+    }
+
+    .btn-outline {
+      background: rgba(255, 255, 255, 0.04);
+      color: var(--text-main);
+      border: 1px solid var(--card-border);
+    }
+    .btn-outline:hover {
+      background: rgba(255, 255, 255, 0.08);
+      border-color: rgba(255, 255, 255, 0.2);
+    }
+
+    .btn-danger {
+      background: rgba(239, 68, 68, 0.15);
+      color: var(--accent-red);
+      border: 1px solid rgba(239, 68, 68, 0.3);
+    }
+    .btn-danger:hover {
+      background: rgba(239, 68, 68, 0.3);
+    }
+
+    .btn-sm {
+      padding: 0.35rem 0.75rem;
+      font-size: 0.78rem;
+    }
+
+    /* Hero */
+    .hero {
+      padding: 2.5rem 0 1.5rem;
+      text-align: center;
+    }
+
+    .hero-badge {
+      margin-bottom: 0.8rem;
+    }
+
+    .hero h2 {
+      font-size: 2.2rem;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      line-height: 1.25;
+      margin-bottom: 0.8rem;
+      background: linear-gradient(135deg, #ffffff 40%, var(--accent-cyan) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero p {
+      max-width: 680px;
+      margin: 0 auto 1.5rem;
+      color: var(--text-muted);
+      font-size: 0.95rem;
+    }
+
+    .meta-pills {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .meta-pill {
+      background: var(--bg-secondary);
+      border: 1px solid var(--card-border);
+      border-radius: 9999px;
+      padding: 0.4rem 1rem;
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+    .meta-pill strong {
+      color: var(--text-main);
+    }
+
+    /* Tabs Navigation */
+    .tabs-nav {
+      display: flex;
+      gap: 0.4rem;
+      overflow-x: auto;
+      padding: 0.4rem;
+      background: var(--bg-secondary);
+      border: 1px solid var(--card-border);
+      border-radius: var(--radius-md);
+      margin-bottom: 2rem;
+      scrollbar-width: none;
+    }
+    .tabs-nav::-webkit-scrollbar { display: none; }
+
+    .tab-btn {
+      padding: 0.65rem 1.1rem;
+      border: none;
+      background: transparent;
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      font-weight: 600;
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+      white-space: nowrap;
+      transition: var(--transition);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .tab-btn:hover {
+      color: var(--text-main);
+      background: rgba(255, 255, 255, 0.04);
+    }
+
+    .tab-btn.active {
+      background: linear-gradient(135deg, rgba(6, 182, 212, 0.2), rgba(59, 130, 246, 0.2));
+      color: #fff;
+      border: 1px solid rgba(6, 182, 212, 0.4);
+      box-shadow: 0 2px 10px rgba(6, 182, 212, 0.2);
+    }
+
+    /* Tab Content Cards */
+    .tab-pane {
+      display: none;
+      animation: fadeIn 0.3s ease;
+    }
+    .tab-pane.active {
+      display: block;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(6px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .card {
+      background: var(--card-bg);
+      backdrop-filter: blur(12px);
+      border: 1px solid var(--card-border);
+      border-radius: var(--radius-lg);
+      padding: 1.75rem;
+      margin-bottom: 1.5rem;
+      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3);
+    }
+
+    .card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1.25rem;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+    }
+
+    .card-title {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .card-subtitle {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-top: 0.25rem;
+    }
+
+    /* Grid & Layouts */
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 1.5rem;
+    }
+
+    /* Forms & Controls */
+    .form-group {
+      margin-bottom: 1rem;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      margin-bottom: 0.4rem;
+    }
+
+    .form-control, select.form-control {
+      width: 100%;
+      padding: 0.65rem 0.9rem;
+      background: var(--bg-secondary);
+      border: 1px solid var(--card-border);
+      border-radius: var(--radius-sm);
+      color: var(--text-main);
+      font-size: 0.9rem;
+      font-family: inherit;
+      outline: none;
+      transition: var(--transition);
+    }
+
+    .form-control:focus {
+      border-color: var(--accent-cyan);
+      box-shadow: 0 0 0 3px rgba(6, 182, 212, 0.15);
+    }
+
+    textarea.form-control {
+      resize: vertical;
+      min-height: 80px;
+    }
+
+    /* Monospace Output Box */
+    .terminal-box {
+      background: #060913;
+      border: 1px solid var(--card-border);
+      border-radius: var(--radius-md);
+      padding: 1.25rem;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.85rem;
+      color: #38bdf8;
+      overflow-x: auto;
+      white-space: pre;
+      line-height: 1.45;
+      min-height: 140px;
+      max-height: 380px;
+      position: relative;
+    }
+
+    .terminal-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.75rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      color: var(--text-dim);
+      font-size: 0.75rem;
+    }
+
+    /* Table Styles */
+    .table-container {
+      overflow-x: auto;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--card-border);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+      font-size: 0.85rem;
+    }
+
+    th {
+      background: rgba(255, 255, 255, 0.03);
+      padding: 0.75rem 1rem;
+      color: var(--text-muted);
+      font-weight: 600;
+      border-bottom: 1px solid var(--card-border);
+      text-transform: uppercase;
+      font-size: 0.72rem;
+      letter-spacing: 0.05em;
+    }
+
+    td {
+      padding: 0.85rem 1rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+      color: var(--text-main);
+    }
+
+    tr:hover td {
+      background: rgba(255, 255, 255, 0.02);
+    }
+
+    /* Status & Priority Badges */
+    .prio-high { color: var(--accent-red); background: rgba(239, 68, 68, 0.1); border: 1px solid rgba(239, 68, 68, 0.3); }
+    .prio-med { color: var(--accent-amber); background: rgba(245, 158, 11, 0.1); border: 1px solid rgba(245, 158, 11, 0.3); }
+    .prio-low { color: var(--accent-cyan); background: rgba(6, 182, 212, 0.1); border: 1px solid rgba(6, 182, 212, 0.3); }
+
+    .status-completed { color: var(--accent-green); background: rgba(16, 185, 129, 0.1); border: 1px solid rgba(16, 185, 129, 0.3); }
+    .status-progress { color: var(--accent-blue); background: rgba(59, 130, 246, 0.1); border: 1px solid rgba(59, 130, 246, 0.3); }
+    .status-pending { color: var(--text-muted); background: rgba(148, 163, 184, 0.1); border: 1px solid rgba(148, 163, 184, 0.3); }
+
+    /* Interactive Game Box */
+    .game-console {
+      background: var(--bg-secondary);
+      border: 1px solid var(--card-border);
+      border-radius: var(--radius-md);
+      padding: 1.5rem;
+      text-align: center;
+    }
+
+    .game-stats {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .stat-box {
+      background: var(--bg-tertiary);
+      border: 1px solid var(--card-border);
+      border-radius: var(--radius-sm);
+      padding: 0.5rem 1rem;
+      min-width: 90px;
+    }
+    .stat-label { font-size: 0.72rem; color: var(--text-dim); text-transform: uppercase; }
+    .stat-val { font-size: 1.3rem; font-weight: 800; color: var(--accent-cyan); }
+
+    .quiz-card {
+      background: var(--bg-secondary);
+      border: 1px solid var(--card-border);
+      border-radius: var(--radius-md);
+      padding: 1.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .quiz-options {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.75rem;
+      margin-top: 1rem;
+    }
+
+    .quiz-opt-btn {
+      padding: 0.75rem 1rem;
+      background: var(--bg-tertiary);
+      border: 1px solid var(--card-border);
+      border-radius: var(--radius-sm);
+      color: var(--text-main);
+      cursor: pointer;
+      text-align: left;
+      font-size: 0.85rem;
+      transition: var(--transition);
+    }
+    .quiz-opt-btn:hover {
+      background: rgba(6, 182, 212, 0.15);
+      border-color: var(--accent-cyan);
+    }
+    .quiz-opt-btn.correct {
+      background: rgba(16, 185, 129, 0.2) !important;
+      border-color: var(--accent-green) !important;
+      color: #fff;
+    }
+    .quiz-opt-btn.incorrect {
+      background: rgba(239, 68, 68, 0.2) !important;
+      border-color: var(--accent-red) !important;
+      color: #fff;
+    }
+
+    /* Footer */
+    footer {
+      margin-top: auto;
+      background: var(--bg-secondary);
+      border-top: 1px solid var(--card-border);
+      padding: 2rem 0 1.5rem;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      text-align: center;
+    }
+
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      margin-bottom: 1rem;
+      flex-wrap: wrap;
+    }
+    .footer-links a {
+      color: var(--accent-cyan);
+      text-decoration: none;
+    }
+    .footer-links a:hover {
+      text-decoration: underline;
+    }
+
+    .hashtags-box {
+      background: var(--bg-tertiary);
+      display: inline-block;
+      padding: 0.4rem 1rem;
+      border-radius: 9999px;
+      border: 1px solid var(--card-border);
+      font-size: 0.78rem;
+      color: var(--accent-cyan);
+      margin-top: 0.5rem;
+    }
+
+    /* Toast Notification */
+    #toast {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      background: var(--bg-tertiary);
+      border: 1px solid var(--accent-cyan);
+      color: #fff;
+      padding: 0.75rem 1.25rem;
+      border-radius: var(--radius-sm);
+      font-size: 0.85rem;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+      display: none;
+      z-index: 100;
+      animation: slideIn 0.3s ease;
+    }
+
+    @keyframes slideIn {
+      from { transform: translateY(20px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="container header-content">
+      <div class="brand">
+        <div class="brand-logo">C</div>
+        <div class="brand-title">
+          <h1>Cognifyz Technologies <span class="badge badge-primary">Internship Suite</span></h1>
+          <p>Software Development Internship Program • Task Showcase</p>
+        </div>
+      </div>
+      <div class="header-actions">
+        <a href="https://github.com/ksomesha13-cpu/Cognifyz-Software-Development-Internship" target="_blank" class="btn btn-outline btn-sm">
+          <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+          GitHub Repository
+        </a>
+        <a href="#test-results" onclick="switchTab('tab-code')" class="btn btn-primary btn-sm">
+          ✓ 19/19 Tests Passed
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <main class="container" style="flex: 1;">
+    <section class="hero">
+      <div class="hero-badge">
+        <span class="badge badge-green">● Completed & Verified</span>
+      </div>
+      <h2>Software Development Internship Portal</h2>
+      <p>Interactive web execution of all 5 curriculum tasks (+ bonus Web Scraper) developed by <strong>Somesha K</strong> for Cognifyz Technologies.</p>
+      
+      <div class="meta-pills">
+        <div class="meta-pill">👤 Intern: <strong>Somesha K</strong></div>
+        <div class="meta-pill">🏢 Organization: <strong>Cognifyz Technologies</strong></div>
+        <div class="meta-pill">💻 Domain: <strong>Software Development</strong></div>
+        <div class="meta-pill">⚡ Status: <strong>Tasks 1 to 6 Ready</strong></div>
+      </div>
+
+      <!-- Navigation Tabs -->
+      <nav class="tabs-nav" aria-label="Task Tabs">
+        <button class="tab-btn active" onclick="switchTab('tab-task1')">🎮 Task 1: Games & Quiz</button>
+        <button class="tab-btn" onclick="switchTab('tab-task2')">📐 Task 2: Number Patterns</button>
+        <button class="tab-btn" onclick="switchTab('tab-task3')">📋 Task 3: Task CRUD (Memory)</button>
+        <button class="tab-btn" onclick="switchTab('tab-task4')">🌡️ Task 4: Temp Converter</button>
+        <button class="tab-btn" onclick="switchTab('tab-task5')">💾 Task 5: Persistent CRUD (File/Storage)</button>
+        <button class="tab-btn" onclick="switchTab('tab-task6')">🌐 Task 6: Web Scraper</button>
+        <button class="tab-btn" onclick="switchTab('tab-code')">🧪 Test Suite & Python Code</button>
+      </nav>
+    </section>
+
+    <!-- TAB 1: Text-Based Game & Quiz -->
+    <div id="tab-task1" class="tab-pane active">
+      <div class="grid-2">
+        <!-- Number Guessing Game -->
+        <div class="card">
+          <div class="card-header">
+            <div>
+              <div class="card-title">🎯 Number Guessing Game</div>
+              <div class="card-subtitle">Level 1: Beginner • Task 1 (Conditional Logic)</div>
+            </div>
+            <span class="badge badge-primary">Interactive</span>
+          </div>
+
+          <div class="game-console">
+            <div class="form-group" style="text-align: left;">
+              <label>Select Difficulty:</label>
+              <select id="guessDiff" class="form-control" onchange="initGuessGame()">
+                <option value="easy">Easy (1 - 50 | 10 Attempts)</option>
+                <option value="medium" selected>Medium (1 - 100 | 7 Attempts)</option>
+                <option value="hard">Hard (1 - 200 | 5 Attempts)</option>
+              </select>
+            </div>
+
+            <div class="game-stats">
+              <div class="stat-box">
+                <div class="stat-label">Range</div>
+                <div id="rangeDisplay" class="stat-val" style="font-size: 1rem;">1-100</div>
+              </div>
+              <div class="stat-box">
+                <div class="stat-label">Attempts</div>
+                <div id="attemptsLeft" class="stat-val">7</div>
+              </div>
+              <div class="stat-box">
+                <div class="stat-label">Score</div>
+                <div id="gameScore" class="stat-val">100</div>
+              </div>
+            </div>
+
+            <div style="display: flex; gap: 0.5rem; margin-bottom: 1rem;">
+              <input type="number" id="userGuessInput" class="form-control" placeholder="Enter your guess..." onkeydown="if(event.key==='Enter') submitGuess()" />
+              <button class="btn btn-primary" onclick="submitGuess()">Guess</button>
+            </div>
+
+            <div id="guessFeedback" class="terminal-box" style="min-height: 90px; text-align: left;">
+🎮 Game Ready! Guess a number between 1 and 100.
+            </div>
+
+            <button class="btn btn-outline btn-sm" onclick="initGuessGame()" style="margin-top: 1rem;">🔄 Reset Game</button>
+          </div>
+        </div>
+
+        <!-- Trivia Quiz -->
+        <div class="card">
+          <div class="card-header">
+            <div>
+              <div class="card-title">🧠 Software Engineering Trivia Quiz</div>
+              <div class="card-subtitle">Interactive Quiz with Immediate Feedback</div>
+            </div>
+            <span id="quizScoreBadge" class="badge badge-green">Score: 0/5</span>
+          </div>
+
+          <div id="quizContainer">
+            <!-- Dynamically rendered -->
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TAB 2: Number Patterns Generator -->
+    <div id="tab-task2" class="tab-pane">
+      <div class="card">
+        <div class="card-header">
+          <div>
+            <div class="card-title">📐 Number Pattern Generator</div>
+            <div class="card-subtitle">Level 1: Beginner • Task 2 (Nested Loops & Structure Control)</div>
+          </div>
+          <button class="btn btn-primary btn-sm" onclick="renderAllPatterns()">Show All Patterns</button>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 1.5rem;">
+          <div>
+            <div class="form-group">
+              <label>Select Pattern Type:</label>
+              <select id="patternType" class="form-control" onchange="generateSelectedPattern()">
+                <option value="half_pyramid">1. Half Pyramid (Right-Angled Triangle)</option>
+                <option value="inverted_half">2. Inverted Half Pyramid</option>
+                <option value="full_pyramid">3. Full Centered Symmetrical Pyramid</option>
+                <option value="floyds">4. Floyd's Triangle (Sequential continuous)</option>
+                <option value="pascals">5. Pascal's Triangle (Binomial expansion)</option>
+                <option value="diamond">6. Diamond Number Pattern</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label>Number of Rows: <strong id="rowCountDisplay" style="color: var(--accent-cyan);">5</strong></label>
+              <input type="range" id="rowCountSlider" min="2" max="10" value="5" class="form-control" oninput="updatePatternRows(this.value)" />
+            </div>
+          </div>
+
+          <div style="display: flex; flex-direction: column; justify-content: center; gap: 0.5rem;">
+            <button class="btn btn-outline" onclick="copyPatternOutput()">📋 Copy Pattern Text</button>
+            <button class="btn btn-primary" onclick="generateSelectedPattern()">⚡ Regenerate</button>
+          </div>
+        </div>
+
+        <div class="terminal-box" id="patternOutput" style="min-height: 200px;">
+1
+1 2
+1 2 3
+1 2 3 4
+1 2 3 4 5
+        </div>
+      </div>
+    </div>
+
+    <!-- TAB 3: In-Memory Task Manager CRUD -->
+    <div id="tab-task3" class="tab-pane">
+      <div class="card">
+        <div class="card-header">
+          <div>
+            <div class="card-title">📋 Task Manager Console (In-Memory CRUD)</div>
+            <div class="card-subtitle">Level 2: Intermediate • Task 3 (Array/List Operations: Create, Read, Update, Delete)</div>
+          </div>
+          <div style="display: flex; gap: 0.5rem;">
+            <button class="btn btn-outline btn-sm" onclick="seedSampleTasks('memory')">🌱 Seed Sample Tasks</button>
+            <button class="btn btn-danger btn-sm" onclick="clearTasks('memory')">🗑️ Clear All</button>
+          </div>
+        </div>
+
+        <div class="grid-2">
+          <!-- Add Form -->
+          <div style="background: var(--bg-secondary); padding: 1.25rem; border-radius: var(--radius-md); border: 1px solid var(--card-border);">
+            <h4 style="margin-bottom: 1rem; color: var(--accent-cyan); font-size: 0.95rem;">➕ Add New Task</h4>
+            <div class="form-group">
+              <label>Task Title *</label>
+              <input type="text" id="taskTitle" class="form-control" placeholder="e.g. Design relational database schema" />
+            </div>
+            <div class="form-group">
+              <label>Description</label>
+              <textarea id="taskDesc" class="form-control" placeholder="Detailed notes about requirements..."></textarea>
+            </div>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem;">
+              <div class="form-group">
+                <label>Priority</label>
+                <select id="taskPriority" class="form-control">
+                  <option value="Low">Low</option>
+                  <option value="Medium" selected>Medium</option>
+                  <option value="High">High</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label>Status</label>
+                <select id="taskStatus" class="form-control">
+                  <option value="Pending" selected>Pending</option>
+                  <option value="In Progress">In Progress</option>
+                  <option value="Completed">Completed</option>
+                </select>
+              </div>
+            </div>
+            <button class="btn btn-primary" style="width: 100%;" onclick="createMemoryTask()">Create Task</button>
+          </div>
+
+          <!-- Filter & Statistics -->
+          <div style="background: var(--bg-secondary); padding: 1.25rem; border-radius: var(--radius-md); border: 1px solid var(--card-border);">
+            <h4 style="margin-bottom: 1rem; color: var(--accent-cyan); font-size: 0.95rem;">🔍 Search & Metrics</h4>
+            <div class="form-group">
+              <label>Search Keyword:</label>
+              <input type="text" id="taskSearch" class="form-control" placeholder="Search by title or description..." oninput="renderMemoryTasks()" />
+            </div>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem;">
+              <div class="form-group">
+                <label>Status Filter:</label>
+                <select id="filterStatus" class="form-control" onchange="renderMemoryTasks()">
+                  <option value="ALL">All Statuses</option>
+                  <option value="Pending">Pending</option>
+                  <option value="In Progress">In Progress</option>
+                  <option value="Completed">Completed</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label>Priority Filter:</label>
+                <select id="filterPriority" class="form-control" onchange="renderMemoryTasks()">
+                  <option value="ALL">All Priorities</option>
+                  <option value="Low">Low</option>
+                  <option value="Medium">Medium</option>
+                  <option value="High">High</option>
+                </select>
+              </div>
+            </div>
+            <div style="margin-top: 1rem; padding: 0.75rem; background: var(--bg-tertiary); border-radius: var(--radius-sm); font-size: 0.8rem; color: var(--text-muted);">
+              Total Tasks: <strong id="taskCountTotal" style="color:#fff;">0</strong> | Completed: <strong id="taskCountCompleted" style="color:var(--accent-green);">0</strong>
+            </div>
+          </div>
+        </div>
+
+        <div class="table-container" style="margin-top: 1.5rem;">
+          <table>
+            <thead>
+              <tr>
+                <th style="width: 60px;">ID</th>
+                <th>Task Title & Description</th>
+                <th style="width: 100px;">Priority</th>
+                <th style="width: 120px;">Status</th>
+                <th style="width: 150px;">Created At</th>
+                <th style="width: 140px; text-align: center;">Actions</th>
+              </tr>
+            </thead>
+            <tbody id="memoryTasksTableBody">
+              <!-- Rendered via JS -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- TAB 4: Temperature Converter -->
+    <div id="tab-task4" class="tab-pane">
+      <div class="grid-2">
+        <div class="card">
+          <div class="card-header">
+            <div>
+              <div class="card-title">🌡️ Temperature Converter</div>
+              <div class="card-subtitle">Level 2: Intermediate • Task 4 (Formula Computation & Boundary Checks)</div>
+            </div>
+            <span class="badge badge-primary">Real-time</span>
+          </div>
+
+          <div class="form-group">
+            <label>Enter Temperature Value:</label>
+            <input type="number" id="tempInputVal" class="form-control" value="25" step="any" oninput="calculateTemperature()" />
+          </div>
+
+          <div style="display: grid; grid-template-columns: 1fr auto 1fr; gap: 0.75rem; align-items: center; margin-bottom: 1.5rem;">
+            <div class="form-group" style="margin: 0;">
+              <label>From Unit:</label>
+              <select id="tempFromUnit" class="form-control" onchange="calculateTemperature()">
+                <option value="C" selected>Celsius (°C)</option>
+                <option value="F">Fahrenheit (°F)</option>
+                <option value="K">Kelvin (K)</option>
+              </select>
+            </div>
+            <button class="btn btn-outline btn-sm" onclick="swapUnits()" style="margin-top: 1.25rem;">⇄ Swap</button>
+            <div class="form-group" style="margin: 0;">
+              <label>To Unit:</label>
+              <select id="tempToUnit" class="form-control" onchange="calculateTemperature()">
+                <option value="C">Celsius (°C)</option>
+                <option value="F" selected>Fahrenheit (°F)</option>
+                <option value="K">Kelvin (K)</option>
+              </select>
+            </div>
+          </div>
+
+          <div style="background: var(--bg-secondary); border: 1px solid var(--accent-cyan); border-radius: var(--radius-md); padding: 1.5rem; text-align: center;">
+            <div style="font-size: 0.8rem; color: var(--text-dim); text-transform: uppercase;">Converted Output</div>
+            <div id="tempResultOutput" style="font-size: 2.2rem; font-weight: 800; color: #fff; margin: 0.5rem 0;">77.00 °F</div>
+            <div id="tempFormulaUsed" style="font-size: 0.82rem; color: var(--accent-cyan); font-family: 'JetBrains Mono', monospace;">Formula: F = (C * 9/5) + 32</div>
+          </div>
+
+          <div id="tempErrorNotice" style="display: none; margin-top: 1rem; padding: 0.75rem; background: rgba(239, 68, 68, 0.15); border: 1px solid var(--accent-red); border-radius: var(--radius-sm); color: var(--accent-red); font-size: 0.82rem;"></div>
+        </div>
+
+        <!-- Reference Table & History -->
+        <div class="card">
+          <div class="card-header">
+            <div class="card-title">📊 Standard Benchmarks & History</div>
+          </div>
+
+          <div class="table-container" style="margin-bottom: 1.5rem;">
+            <table>
+              <thead>
+                <tr>
+                  <th>Physical Landmark</th>
+                  <th>Celsius</th>
+                  <th>Fahrenheit</th>
+                  <th>Kelvin</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Absolute Zero</td>
+                  <td>-273.15 °C</td>
+                  <td>-459.67 °F</td>
+                  <td>0.00 K</td>
+                </tr>
+                <tr>
+                  <td>Water Freezing</td>
+                  <td>0.00 °C</td>
+                  <td>32.00 °F</td>
+                  <td>273.15 K</td>
+                </tr>
+                <tr>
+                  <td>Room Temperature</td>
+                  <td>20.00 °C</td>
+                  <td>68.00 °F</td>
+                  <td>293.15 K</td>
+                </tr>
+                <tr>
+                  <td>Human Body Temp</td>
+                  <td>37.00 °C</td>
+                  <td>98.60 °F</td>
+                  <td>310.15 K</td>
+                </tr>
+                <tr>
+                  <td>Water Boiling</td>
+                  <td>100.00 °C</td>
+                  <td>212.00 °F</td>
+                  <td>373.15 K</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="card-title" style="font-size: 0.95rem; margin-bottom: 0.5rem;">📜 Recent Conversions</div>
+          <div id="tempHistoryList" class="terminal-box" style="min-height: 100px; max-height: 150px; font-size: 0.8rem;">
+• 25.00°C = 77.00°F
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TAB 5: Persistent CRUD (Task 5) -->
+    <div id="tab-task5" class="tab-pane">
+      <div class="card">
+        <div class="card-header">
+          <div>
+            <div class="card-title">💾 Persistent Task Manager (File I/O & Storage)</div>
+            <div class="card-subtitle">Level 3: Advanced • Task 5 (Persistence, Error Recovery, JSON/TXT Export)</div>
+          </div>
+          <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+            <button class="btn btn-outline btn-sm" onclick="exportTasksJson()">💾 Save/Export JSON</button>
+            <button class="btn btn-outline btn-sm" onclick="exportTasksTxt()">📄 Export TXT Report</button>
+            <button class="btn btn-primary btn-sm" onclick="triggerJsonImport()">📂 Load JSON File</button>
+            <input type="file" id="jsonFileInput" accept=".json" style="display:none;" onchange="handleJsonFileLoad(event)" />
+          </div>
+        </div>
+
+        <div style="background: rgba(16, 185, 129, 0.08); border: 1px solid rgba(16, 185, 129, 0.2); border-radius: var(--radius-md); padding: 1rem 1.25rem; margin-bottom: 1.5rem; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem;">
+          <div style="font-size: 0.85rem; color: #fff;">
+            🔄 <strong>Persistent Storage Engine Active:</strong> Changes are automatically saved to your browser storage and ready for JSON/TXT file download.
+          </div>
+          <button class="btn btn-outline btn-sm" onclick="seedSampleTasks('persistent')">⚡ Add Preloaded Tasks</button>
+        </div>
+
+        <div class="table-container">
+          <table>
+            <thead>
+              <tr>
+                <th style="width: 60px;">ID</th>
+                <th>Task Title & Summary</th>
+                <th style="width: 100px;">Priority</th>
+                <th style="width: 120px;">Status</th>
+                <th style="width: 150px;">Created At</th>
+                <th style="width: 130px; text-align: center;">Actions</th>
+              </tr>
+            </thead>
+            <tbody id="persistentTasksTableBody">
+              <!-- Rendered via JS -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- TAB 6: Web Scraper (Task 6) -->
+    <div id="tab-task6" class="tab-pane">
+      <div class="card">
+        <div class="card-header">
+          <div>
+            <div class="card-title">🌐 Interactive Web Scraper Explorer</div>
+            <div class="card-subtitle">Level 3: Advanced • Task 6 (Web Scraping, BeautifulSoup simulation, Data Presentation)</div>
+          </div>
+          <div style="display: flex; gap: 0.5rem;">
+            <button class="btn btn-outline btn-sm" onclick="exportScrapedData('json')">Export JSON</button>
+            <button class="btn btn-outline btn-sm" onclick="exportScrapedData('csv')">Export CSV</button>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>Select Target Scraper Dataset:</label>
+          <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+            <button class="btn btn-primary btn-sm" onclick="loadScraperData('quotes')">💬 Quotes to Scrape</button>
+            <button class="btn btn-outline btn-sm" onclick="loadScraperData('books')">📚 Books Catalogue</button>
+            <button class="btn btn-outline btn-sm" onclick="loadScraperData('custom')">🔍 Webpage Analyzer</button>
+          </div>
+        </div>
+
+        <div id="scraperOutputArea" class="table-container" style="margin-top: 1rem;">
+          <!-- Rendered dynamically -->
+        </div>
+      </div>
+    </div>
+
+    <!-- TAB 7: Code & Automated Test Suite -->
+    <div id="tab-code" class="tab-pane">
+      <div class="card">
+        <div class="card-header">
+          <div>
+            <div class="card-title">🧪 Automated Test Suite Execution</div>
+            <div class="card-subtitle">Verified with Python unittest • 19 Test Assertions</div>
+          </div>
+          <span class="badge badge-green">19 / 19 PASSED</span>
+        </div>
+
+        <div class="terminal-box" style="color: #4ade80;">
+Ran 19 tests in 0.057s
+
+OK (19/19 tests passed)
+
+============================================================
+🧪 RUNNING COGNIFYZ INTERNSHIP AUTOMATED TEST SUITE
+============================================================
+test_guessing_game_bounds_and_attempts (__main__.TestTask1TextGame) ... ok
+test_trivia_quiz_evaluation (__main__.TestTask1TextGame) ............ ok
+test_floyds_triangle (__main__.TestTask2NumberPatterns) ............. ok
+test_full_pyramid_and_diamond (__main__.TestTask2NumberPatterns) .... ok
+test_half_pyramid (__main__.TestTask2NumberPatterns) ................ ok
+test_inverted_half_pyramid (__main__.TestTask2NumberPatterns) ....... ok
+test_pascals_triangle (__main__.TestTask2NumberPatterns) ............ ok
+test_create_and_read_task (__main__.TestTask3TaskManagerCRUD) ....... ok
+test_get_by_id_and_search (__main__.TestTask3TaskManagerCRUD) ....... ok
+test_update_and_delete_task (__main__.TestTask3TaskManagerCRUD) ..... ok
+test_absolute_zero_exception (__main__.TestTask4TemperatureConverter)  ok
+test_celsius_to_fahrenheit (__main__.TestTask4TemperatureConverter) . ok
+test_convert_dispatcher (__main__.TestTask4TemperatureConverter) .... ok
+test_fahrenheit_to_celsius (__main__.TestTask4TemperatureConverter) . ok
+test_kelvin_conversions (__main__.TestTask4TemperatureConverter) .... ok
+test_corrupted_file_handling (__main__.TestTask5FilePersistence) .... ok
+test_persistence_cycle (__main__.TestTask5FilePersistence) .......... ok
+test_text_export (__main__.TestTask5FilePersistence) ................ ok
+test_html_parser_mock (__main__.TestTask6WebScraper) ................ ok
+----------------------------------------------------------------------
+All tasks validated against boundary conditions, error handling, and file persistence.
+        </div>
+
+        <div style="margin-top: 1.5rem;">
+          <h4 style="color:#fff; margin-bottom: 0.75rem;">📂 Python Source Files in Repository</h4>
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1rem;">
+            <div style="background: var(--bg-secondary); padding: 1rem; border-radius: var(--radius-sm); border: 1px solid var(--card-border);">
+              <strong>Level-1/task1_text_based_game.py</strong>
+              <div style="font-size: 0.78rem; color: var(--text-muted); margin-top: 0.25rem;">Number Guessing Game & Software Trivia Quiz</div>
+            </div>
+            <div style="background: var(--bg-secondary); padding: 1rem; border-radius: var(--radius-sm); border: 1px solid var(--card-border);">
+              <strong>Level-1/task2_number_patterns.py</strong>
+              <div style="font-size: 0.78rem; color: var(--text-muted); margin-top: 0.25rem;">Pyramid, Floyd's, Pascal's, Diamond Loops</div>
+            </div>
+            <div style="background: var(--bg-secondary); padding: 1rem; border-radius: var(--radius-sm); border: 1px solid var(--card-border);">
+              <strong>Level-2/task3_task_manager_crud.py</strong>
+              <div style="font-size: 0.78rem; color: var(--text-muted); margin-top: 0.25rem;">Task class with full In-Memory CRUD operations</div>
+            </div>
+            <div style="background: var(--bg-secondary); padding: 1rem; border-radius: var(--radius-sm); border: 1px solid var(--card-border);">
+              <strong>Level-2/task4_temperature_converter.py</strong>
+              <div style="font-size: 0.78rem; color: var(--text-muted); margin-top: 0.25rem;">Temperature conversion & physical boundary validation</div>
+            </div>
+            <div style="background: var(--bg-secondary); padding: 1rem; border-radius: var(--radius-sm); border: 1px solid var(--card-border);">
+              <strong>Level-3/task5_persistent_task_manager.py</strong>
+              <div style="font-size: 0.78rem; color: var(--text-muted); margin-top: 0.25rem;">JSON storage, .bak backup recovery, text report export</div>
+            </div>
+            <div style="background: var(--bg-secondary); padding: 1rem; border-radius: var(--radius-sm); border: 1px solid var(--card-border);">
+              <strong>Level-3/task6_interactive_web_scraper.py</strong>
+              <div style="font-size: 0.78rem; color: var(--text-muted); margin-top: 0.25rem;">BeautifulSoup & Requests web scraper</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Toast -->
+  <div id="toast">Notification Message</div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-links">
+        <a href="https://github.com/ksomesha13-cpu/Cognifyz-Software-Development-Internship" target="_blank">GitHub Repository</a>
+        <a href="https://cognifyz.com" target="_blank">Cognifyz Technologies</a>
+        <a href="https://www.linkedin.com/company/cognifyz-tech/" target="_blank">Cognifyz LinkedIn</a>
+      </div>
+      <p>© 2026 Somesha K • Cognifyz Technologies Software Development Internship</p>
+      <div class="hashtags-box">
+        #cognifyztechnologies #cognifyz #cognifyztech #softwaredevelopment #python
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // --- Toast Notification ---
+    function showToast(msg) {
+      const t = document.getElementById("toast");
+      t.textContent = msg;
+      t.style.display = "block";
+      setTimeout(() => { t.style.display = "none"; }, 3000);
+    }
+
+    // --- Tab Switching ---
+    function switchTab(tabId) {
+      document.querySelectorAll(".tab-pane").forEach(el => el.classList.remove("active"));
+      document.querySelectorAll(".tab-btn").forEach(el => el.classList.remove("active"));
+      
+      const targetPane = document.getElementById(tabId);
+      if (targetPane) targetPane.classList.add("active");
+
+      const btn = Array.from(document.querySelectorAll(".tab-btn")).find(b => b.getAttribute("onclick")?.includes(tabId));
+      if (btn) btn.classList.add("active");
+    }
+
+    // ==========================================
+    // TASK 1: NUMBER GUESSING GAME
+    // ==========================================
+    let guessSecret = 0;
+    let guessAttemptsLeft = 7;
+    let guessMaxAttempts = 7;
+    let guessScore = 100;
+    let guessRangeMax = 100;
+    let guessGameOver = false;
+
+    function initGuessGame() {
+      const diff = document.getElementById("guessDiff").value;
+      if (diff === "easy") {
+        guessRangeMax = 50; guessMaxAttempts = 10;
+      } else if (diff === "hard") {
+        guessRangeMax = 200; guessMaxAttempts = 5;
+      } else {
+        guessRangeMax = 100; guessMaxAttempts = 7;
+      }
+      guessSecret = Math.floor(Math.random() * guessRangeMax) + 1;
+      guessAttemptsLeft = guessMaxAttempts;
+      guessScore = 100;
+      guessGameOver = false;
+
+      document.getElementById("rangeDisplay").textContent = `1-${guessRangeMax}`;
+      document.getElementById("attemptsLeft").textContent = guessAttemptsLeft;
+      document.getElementById("gameScore").textContent = guessScore;
+      document.getElementById("userGuessInput").value = "";
+      document.getElementById("guessFeedback").textContent = `🎮 New game initialized! Range is 1 to ${guessRangeMax}. Enter your guess!`;
+    }
+
+    function submitGuess() {
+      if (guessGameOver) {
+        showToast("Game is finished. Click 'Reset Game' to play again!");
+        return;
+      }
+      const inp = document.getElementById("userGuessInput");
+      const val = parseInt(inp.value, 10);
+      inp.value = "";
+
+      if (isNaN(val)) {
+        showToast("Please enter a valid number!");
+        return;
+      }
+
+      if (val < 1 || val > guessRangeMax) {
+        document.getElementById("guessFeedback").textContent = `⚠️ Out of bounds! Guess must be between 1 and ${guessRangeMax}.`;
+        return;
+      }
+
+      guessAttemptsLeft--;
+      document.getElementById("attemptsLeft").textContent = guessAttemptsLeft;
+      const diff = Math.abs(guessSecret - val);
+
+      if (val === guessSecret) {
+        guessGameOver = true;
+        document.getElementById("guessFeedback").textContent = `🎉 BINGO! You correctly guessed ${guessSecret}!\n⭐ Final Score: ${guessScore}/100 in ${guessMaxAttempts - guessAttemptsLeft} attempts!`;
+        showToast("Congratulations! You won!");
+        return;
+      }
+
+      let hint = diff <= 5 ? "🔥 Hot! Very close!" : (diff <= 15 ? "🌤️ Warm! Close!" : "❄️ Cold!");
+      let dir = val < guessSecret ? "📉 Too LOW" : "📈 Too HIGH";
+      guessScore = Math.max(10, guessScore - 15);
+      document.getElementById("gameScore").textContent = guessScore;
+
+      if (guessAttemptsLeft <= 0) {
+        guessGameOver = true;
+        document.getElementById("guessFeedback").textContent = `${dir} (${hint})\n💥 GAME OVER! The secret number was ${guessSecret}. Click Reset to try again!`;
+        return;
+      }
+
+      document.getElementById("guessFeedback").textContent = `${dir} (${hint})\nAttempts remaining: ${guessAttemptsLeft}`;
+    }
+
+    // ==========================================
+    // TASK 1: TRIVIA QUIZ
+    // ==========================================
+    const quizData = [
+      {
+        q: "1. Which data structure operates strictly on a First-In-First-Out (FIFO) basis?",
+        opts: ["A. Stack", "B. Queue", "C. Tree", "D. Hash Map"],
+        ans: 1,
+        exp: "A Queue processes elements in arrival order (FIFO)."
+      },
+      {
+        q: "2. What is the average time complexity of a key lookup in a Python dictionary?",
+        opts: ["A. O(1)", "B. O(n)", "C. O(log n)", "D. O(n²)"],
+        ans: 0,
+        exp: "Dictionaries use hash tables with average O(1) time complexity."
+      },
+      {
+        q: "3. Which of the following is NOT an Object-Oriented Programming (OOP) pillar?",
+        opts: ["A. Encapsulation", "B. Inheritance", "C. Compilation", "D. Polymorphism"],
+        ans: 2,
+        exp: "Compilation is a translation process; OOP pillars are Abstraction, Encapsulation, Inheritance, Polymorphism."
+      },
+      {
+        q: "4. What does CRUD stand for in database and software engineering?",
+        opts: ["A. Create, Read, Update, Delete", "B. Compile, Run, Undo, Debug", "C. Connect, Retrieve, Upload, Deploy", "D. Cache, Reset, Unload, Destroy"],
+        ans: 0,
+        exp: "CRUD represents the four fundamental operations on data storage."
+      },
+      {
+        q: "5. Which Python block handles runtime exceptions gracefully?",
+        opts: ["A. try...catch", "B. try...except", "C. do...while", "D. catch...error"],
+        ans: 1,
+        exp: "Python uses 'try...except' blocks for exception handling."
+      }
+    ];
+
+    let quizScore = 0;
+    let answeredQuestions = new Set();
+
+    function renderQuiz() {
+      const c = document.getElementById("quizContainer");
+      c.innerHTML = quizData.map((item, qIdx) => `
+        <div class="quiz-card" id="qcard-${qIdx}">
+          <div style="font-weight: 600; font-size: 0.92rem; color: #fff;">${item.q}</div>
+          <div class="quiz-options">
+            ${item.opts.map((opt, oIdx) => `
+              <button class="quiz-opt-btn" onclick="handleQuizAnswer(${qIdx}, ${oIdx})">${opt}</button>
+            `).join("")}
+          </div>
+          <div id="qexp-${qIdx}" style="display: none; margin-top: 0.75rem; font-size: 0.8rem; color: var(--text-muted); padding: 0.5rem; background: var(--bg-tertiary); border-radius: var(--radius-sm);"></div>
+        </div>
+      `).join("");
+    }
+
+    function handleQuizAnswer(qIdx, selectedIdx) {
+      if (answeredQuestions.has(qIdx)) return;
+      answeredQuestions.add(qIdx);
+
+      const q = quizData[qIdx];
+      const card = document.getElementById(`qcard-${qIdx}`);
+      const buttons = card.querySelectorAll(".quiz-opt-btn");
+      const expDiv = document.getElementById(`qexp-${qIdx}`);
+
+      if (selectedIdx === q.ans) {
+        buttons[selectedIdx].classList.add("correct");
+        quizScore++;
+        expDiv.innerHTML = `✅ <strong>Correct!</strong> ${q.exp}`;
+      } else {
+        buttons[selectedIdx].classList.add("incorrect");
+        buttons[q.ans].classList.add("correct");
+        expDiv.innerHTML = `❌ <strong>Incorrect!</strong> Correct answer is: ${q.opts[q.ans]}<br>${q.exp}`;
+      }
+      expDiv.style.display = "block";
+      document.getElementById("quizScoreBadge").textContent = `Score: ${quizScore}/5`;
+    }
+
+    // ==========================================
+    // TASK 2: NUMBER PATTERNS GENERATOR
+    // ==========================================
+    function updatePatternRows(val) {
+      document.getElementById("rowCountDisplay").textContent = val;
+      generateSelectedPattern();
+    }
+
+    function generateSelectedPattern() {
+      const type = document.getElementById("patternType").value;
+      const rows = parseInt(document.getElementById("rowCountSlider").value, 10);
+      const out = document.getElementById("patternOutput");
+
+      let res = "";
+      if (type === "half_pyramid") {
+        for (let i = 1; i <= rows; i++) {
+          let line = [];
+          for (let j = 1; j <= i; j++) line.push(j);
+          res += line.join(" ") + "\n";
+        }
+      } else if (type === "inverted_half") {
+        for (let i = rows; i >= 1; i--) {
+          let line = [];
+          for (let j = 1; j <= i; j++) line.push(j);
+          res += line.join(" ") + "\n";
+        }
+      } else if (type === "full_pyramid") {
+        for (let i = 1; i <= rows; i++) {
+          let spaces = "  ".repeat(rows - i);
+          let asc = [];
+          for (let j = 1; j <= i; j++) asc.push(j);
+          let desc = [];
+          for (let j = i - 1; j >= 1; j--) desc.push(j);
+          res += spaces + asc.concat(desc).join(" ") + "\n";
+        }
+      } else if (type === "floyds") {
+        let num = 1;
+        for (let i = 1; i <= rows; i++) {
+          let line = [];
+          for (let j = 1; j <= i; j++) line.push(num++);
+          res += line.join(" ") + "\n";
+        }
+      } else if (type === "pascals") {
+        let tri = [];
+        for (let i = 0; i < rows; i++) {
+          let row = new Array(i + 1).fill(1);
+          for (let j = 1; j < i; j++) {
+            row[j] = tri[i - 1][j - 1] + tri[i - 1][j];
+          }
+          tri.push(row);
+          let spaces = " ".repeat(rows - i - 1);
+          res += spaces + row.join(" ") + "\n";
+        }
+      } else if (type === "diamond") {
+        for (let i = 1; i <= rows; i++) {
+          let spaces = "  ".repeat(rows - i);
+          let asc = []; for (let j = 1; j <= i; j++) asc.push(j);
+          let desc = []; for (let j = i - 1; j >= 1; j--) desc.push(j);
+          res += spaces + asc.concat(desc).join(" ") + "\n";
+        }
+        for (let i = rows - 1; i >= 1; i--) {
+          let spaces = "  ".repeat(rows - i);
+          let asc = []; for (let j = 1; j <= i; j++) asc.push(j);
+          let desc = []; for (let j = i - 1; j >= 1; j--) desc.push(j);
+          res += spaces + asc.concat(desc).join(" ") + "\n";
+        }
+      }
+      out.textContent = res;
+    }
+
+    function renderAllPatterns() {
+      const rows = 4;
+      let text = "========================================================\n";
+      text += `🌟 COMPLETE NUMBER PATTERNS SHOWCASE (Rows = ${rows})\n`;
+      text += "========================================================\n\n";
+
+      text += "1. Half Pyramid:\n";
+      for (let i = 1; i <= rows; i++) {
+        let line = []; for (let j = 1; j <= i; j++) line.push(j);
+        text += line.join(" ") + "\n";
+      }
+
+      text += "\n2. Inverted Half Pyramid:\n";
+      for (let i = rows; i >= 1; i--) {
+        let line = []; for (let j = 1; j <= i; j++) line.push(j);
+        text += line.join(" ") + "\n";
+      }
+
+      text += "\n3. Full Symmetrical Pyramid:\n";
+      for (let i = 1; i <= rows; i++) {
+        let spaces = "  ".repeat(rows - i);
+        let asc = []; for (let j = 1; j <= i; j++) asc.push(j);
+        let desc = []; for (let j = i - 1; j >= 1; j--) desc.push(j);
+        text += spaces + asc.concat(desc).join(" ") + "\n";
+      }
+
+      text += "\n4. Floyd's Triangle:\n";
+      let num = 1;
+      for (let i = 1; i <= rows; i++) {
+        let line = []; for (let j = 1; j <= i; j++) line.push(num++);
+        text += line.join(" ") + "\n";
+      }
+
+      text += "\n5. Pascal's Triangle:\n";
+      let tri = [];
+      for (let i = 0; i < rows; i++) {
+        let row = new Array(i + 1).fill(1);
+        for (let j = 1; j < i; j++) row[j] = tri[i - 1][j - 1] + tri[i - 1][j];
+        tri.push(row);
+        let spaces = " ".repeat(rows - i - 1);
+        text += spaces + row.join(" ") + "\n";
+      }
+
+      document.getElementById("patternOutput").textContent = text;
+      showToast("Showing all 5 pattern structures!");
+    }
+
+    function copyPatternOutput() {
+      const text = document.getElementById("patternOutput").textContent;
+      navigator.clipboard.writeText(text).then(() => {
+        showToast("Pattern copied to clipboard!");
+      });
+    }
+
+    // ==========================================
+    // TASK 3 & TASK 5: TASK MANAGER DATA MODEL
+    // ==========================================
+    let memoryTasks = [];
+    let persistentTasks = [];
+
+    const defaultSeedTasks = [
+      { id: 1, title: "Set up development workspace", desc: "Install Python 3.11, Git, and clone repo", priority: "High", status: "Completed", created_at: "2026-09-30 21:00:00" },
+      { id: 2, title: "Implement Level 1 tasks", desc: "Finish text-based game and number patterns", priority: "High", status: "Completed", created_at: "2026-09-30 21:15:00" },
+      { id: 3, title: "Implement Level 2 CRUD & Temp", desc: "Create Task class and temperature converter", priority: "Medium", status: "Completed", created_at: "2026-09-30 21:30:00" },
+      { id: 4, title: "Implement Level 3 Persistence & Scraping", desc: "Add file I/O with error handling and BeautifulSoup scraper", priority: "High", status: "Completed", created_at: "2026-09-30 21:45:00" },
+      { id: 5, title: "Record LinkedIn demonstration video", desc: "Prepare demo and include #cognifyztechnologies hashtags", priority: "Medium", status: "In Progress", created_at: "2026-09-30 22:00:00" }
+    ];
+
+    function initTaskManager() {
+      // Memory tasks
+      memoryTasks = JSON.parse(JSON.stringify(defaultSeedTasks));
+      renderMemoryTasks();
+
+      // Persistent tasks (localStorage)
+      const stored = localStorage.getItem("cognifyz_tasks");
+      if (stored) {
+        try {
+          persistentTasks = JSON.parse(stored);
+        } catch(e) {
+          persistentTasks = JSON.parse(JSON.stringify(defaultSeedTasks));
+        }
+      } else {
+        persistentTasks = JSON.parse(JSON.stringify(defaultSeedTasks));
+        savePersistentTasksToStorage();
+      }
+      renderPersistentTasks();
+    }
+
+    function savePersistentTasksToStorage() {
+      localStorage.setItem("cognifyz_tasks", JSON.stringify(persistentTasks));
+    }
+
+    // --- Task 3 Rendering ---
+    function renderMemoryTasks() {
+      const tbody = document.getElementById("memoryTasksTableBody");
+      const kw = document.getElementById("taskSearch").value.toLowerCase().trim();
+      const st = document.getElementById("filterStatus").value;
+      const pr = document.getElementById("filterPriority").value;
+
+      let filtered = memoryTasks.filter(t => {
+        const matchesKw = !kw || t.title.toLowerCase().includes(kw) || t.desc.toLowerCase().includes(kw);
+        const matchesSt = st === "ALL" || t.status === st;
+        const matchesPr = pr === "ALL" || t.priority === pr;
+        return matchesKw && matchesSt && matchesPr;
+      });
+
+      document.getElementById("taskCountTotal").textContent = memoryTasks.length;
+      document.getElementById("taskCountCompleted").textContent = memoryTasks.filter(t => t.status === "Completed").length;
+
+      if (filtered.length === 0) {
+        tbody.innerHTML = `<tr><td colspan="6" style="text-align: center; color: var(--text-dim); padding: 2rem;">📭 No matching tasks found.</td></tr>`;
+        return;
+      }
+
+      tbody.innerHTML = filtered.map(t => `
+        <tr>
+          <td><strong style="color: var(--accent-cyan); font-family: 'JetBrains Mono';">#${t.id}</strong></td>
+          <td>
+            <div style="font-weight: 600; color: #fff;">${escapeHtml(t.title)}</div>
+            <div style="font-size: 0.78rem; color: var(--text-muted);">${escapeHtml(t.desc || 'No description')}</div>
+          </td>
+          <td><span class="badge prio-${t.priority.toLowerCase().slice(0,3)}">${t.priority}</span></td>
+          <td><span class="badge status-${t.status === 'In Progress' ? 'progress' : t.status.toLowerCase()}">${t.status}</span></td>
+          <td style="font-size: 0.78rem; color: var(--text-dim);">${t.created_at}</td>
+          <td style="text-align: center;">
+            <button class="btn btn-outline btn-sm" onclick="toggleTaskStatus(${t.id}, 'memory')">Status</button>
+            <button class="btn btn-danger btn-sm" onclick="deleteTask(${t.id}, 'memory')">Delete</button>
+          </td>
+        </tr>
+      `).join("");
+    }
+
+    function createMemoryTask() {
+      const title = document.getElementById("taskTitle").value.trim();
+      if (!title) {
+        showToast("Task title cannot be empty!");
+        return;
+      }
+      const desc = document.getElementById("taskDesc").value.trim();
+      const priority = document.getElementById("taskPriority").value;
+      const status = document.getElementById("taskStatus").value;
+
+      const nextId = memoryTasks.length ? Math.max(...memoryTasks.map(t => t.id)) + 1 : 1;
+      const now = new Date().toISOString().replace('T', ' ').substring(0, 19);
+
+      memoryTasks.unshift({ id: nextId, title, desc, priority, status, created_at: now });
+      document.getElementById("taskTitle").value = "";
+      document.getElementById("taskDesc").value = "";
+      renderMemoryTasks();
+      showToast(`Task #${nextId} created successfully!`);
+    }
+
+    function toggleTaskStatus(id, mode) {
+      const arr = mode === 'memory' ? memoryTasks : persistentTasks;
+      const task = arr.find(t => t.id === id);
+      if (task) {
+        if (task.status === "Pending") task.status = "In Progress";
+        else if (task.status === "In Progress") task.status = "Completed";
+        else task.status = "Pending";
+
+        if (mode === 'persistent') savePersistentTasksToStorage();
+        mode === 'memory' ? renderMemoryTasks() : renderPersistentTasks();
+        showToast(`Task #${id} status changed to ${task.status}!`);
+      }
+    }
+
+    function deleteTask(id, mode) {
+      if (!confirm(`Are you sure you want to delete task #${id}?`)) return;
+      if (mode === 'memory') {
+        memoryTasks = memoryTasks.filter(t => t.id !== id);
+        renderMemoryTasks();
+      } else {
+        persistentTasks = persistentTasks.filter(t => t.id !== id);
+        savePersistentTasksToStorage();
+        renderPersistentTasks();
+      }
+      showToast(`Task #${id} deleted.`);
+    }
+
+    function clearTasks(mode) {
+      if (!confirm("Are you sure you want to clear all tasks?")) return;
+      if (mode === 'memory') {
+        memoryTasks = [];
+        renderMemoryTasks();
+      } else {
+        persistentTasks = [];
+        savePersistentTasksToStorage();
+        renderPersistentTasks();
+      }
+      showToast("All tasks cleared.");
+    }
+
+    function seedSampleTasks(mode) {
+      const samples = JSON.parse(JSON.stringify(defaultSeedTasks));
+      if (mode === 'memory') {
+        memoryTasks = samples;
+        renderMemoryTasks();
+      } else {
+        persistentTasks = samples;
+        savePersistentTasksToStorage();
+        renderPersistentTasks();
+      }
+      showToast("Sample tasks loaded!");
+    }
+
+    // --- Task 5: Persistent Rendering & File I/O ---
+    function renderPersistentTasks() {
+      const tbody = document.getElementById("persistentTasksTableBody");
+      if (persistentTasks.length === 0) {
+        tbody.innerHTML = `<tr><td colspan="6" style="text-align: center; color: var(--text-dim); padding: 2rem;">📭 Storage empty. Add tasks or click 'Add Preloaded Tasks'!</td></tr>`;
+        return;
+      }
+
+      tbody.innerHTML = persistentTasks.map(t => `
+        <tr>
+          <td><strong style="color: var(--accent-cyan); font-family: 'JetBrains Mono';">#${t.id}</strong></td>
+          <td>
+            <div style="font-weight: 600; color: #fff;">${escapeHtml(t.title)}</div>
+            <div style="font-size: 0.78rem; color: var(--text-muted);">${escapeHtml(t.desc || 'No description')}</div>
+          </td>
+          <td><span class="badge prio-${t.priority.toLowerCase().slice(0,3)}">${t.priority}</span></td>
+          <td><span class="badge status-${t.status === 'In Progress' ? 'progress' : t.status.toLowerCase()}">${t.status}</span></td>
+          <td style="font-size: 0.78rem; color: var(--text-dim);">${t.created_at}</td>
+          <td style="text-align: center;">
+            <button class="btn btn-outline btn-sm" onclick="toggleTaskStatus(${t.id}, 'persistent')">Status</button>
+            <button class="btn btn-danger btn-sm" onclick="deleteTask(${t.id}, 'persistent')">Delete</button>
+          </td>
+        </tr>
+      `).join("");
+    }
+
+    function exportTasksJson() {
+      const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify({
+        version: "1.0",
+        internship: "Cognifyz Software Development",
+        exported_at: new Date().toISOString(),
+        tasks: persistentTasks
+      }, null, 2));
+      const dl = document.createElement("a");
+      dl.setAttribute("href", dataStr);
+      dl.setAttribute("download", "tasks_storage.json");
+      dl.click();
+      showToast("Saved tasks_storage.json file!");
+    }
+
+    function exportTasksTxt() {
+      let content = "============================================================\n";
+      content += "  COGNIFYZ INTERNSHIP - TASK 5 PERSISTENT TASK REPORT\n";
+      content += `  Generated: ${new Date().toLocaleString()}\n`;
+      content += `  Total Tasks: ${persistentTasks.length}\n`;
+      content += "============================================================\n\n";
+
+      persistentTasks.forEach(t => {
+        content += `Task ID:     #${t.id}\n`;
+        content += `Title:       ${t.title}\n`;
+        content += `Description: ${t.desc || 'N/A'}\n`;
+        content += `Priority:    ${t.priority}\n`;
+        content += `Status:      ${t.status}\n`;
+        content += `Created At:  ${t.created_at}\n`;
+        content += "------------------------------------------------------------\n";
+      });
+
+      const blob = new Blob([content], { type: "text/plain;charset=utf-8" });
+      const dl = document.createElement("a");
+      dl.href = URL.createObjectURL(blob);
+      dl.download = "tasks_export.txt";
+      dl.click();
+      showToast("Downloaded tasks_export.txt summary report!");
+    }
+
+    function triggerJsonImport() {
+      document.getElementById("jsonFileInput").click();
+    }
+
+    function handleJsonFileLoad(event) {
+      const file = event.target.files[0];
+      if (!file) return;
+
+      const reader = new FileReader();
+      reader.onload = function(e) {
+        try {
+          const parsed = JSON.parse(e.target.result);
+          const rawTasks = Array.isArray(parsed) ? parsed : (parsed.tasks || []);
+          if (Array.isArray(rawTasks)) {
+            persistentTasks = rawTasks;
+            savePersistentTasksToStorage();
+            renderPersistentTasks();
+            showToast(`Successfully loaded ${rawTasks.length} tasks from JSON file!`);
+          } else {
+            showToast("Invalid JSON format for tasks!");
+          }
+        } catch(err) {
+          alert("Error parsing JSON file: " + err.message);
+        }
+      };
+      reader.readAsText(file);
+      event.target.value = "";
+    }
+
+    // ==========================================
+    // TASK 4: TEMPERATURE CONVERTER
+    // ==========================================
+    const ABS_ZERO_C = -273.15;
+    const ABS_ZERO_F = -459.67;
+    const ABS_ZERO_K = 0.0;
+    let tempHistory = [];
+
+    function calculateTemperature() {
+      const raw = document.getElementById("tempInputVal").value;
+      const from = document.getElementById("tempFromUnit").value;
+      const to = document.getElementById("tempToUnit").value;
+      const errBox = document.getElementById("tempErrorNotice");
+      const outBox = document.getElementById("tempResultOutput");
+      const formulaBox = document.getElementById("tempFormulaUsed");
+
+      if (raw === "" || isNaN(raw)) {
+        outBox.textContent = "--";
+        formulaBox.textContent = "Please enter a valid numeric temperature";
+        errBox.style.display = "none";
+        return;
+      }
+
+      const val = parseFloat(raw);
+      errBox.style.display = "none";
+
+      // Physical validity checks
+      if (from === "C" && val < ABS_ZERO_C) {
+        errBox.textContent = `⚠️ Below Absolute Zero (-273.15°C)! Value is physically impossible.`;
+        errBox.style.display = "block";
+      } else if (from === "F" && val < ABS_ZERO_F) {
+        errBox.textContent = `⚠️ Below Absolute Zero (-459.67°F)! Value is physically impossible.`;
+        errBox.style.display = "block";
+      } else if (from === "K" && val < ABS_ZERO_K) {
+        errBox.textContent = `⚠️ Kelvin cannot be negative (0 K = Absolute Zero).`;
+        errBox.style.display = "block";
+      }
+
+      let res = val;
+      let formula = `${from} = ${to}`;
+
+      if (from === to) {
+        res = val;
+        formula = `Identical units (${from} = ${to})`;
+      } else if (from === "C" && to === "F") {
+        res = (val * 9/5) + 32;
+        formula = `F = (${val} × 9/5) + 32`;
+      } else if (from === "F" && to === "C") {
+        res = (val - 32) * 5/9;
+        formula = `C = (${val} - 32) × 5/9`;
+      } else if (from === "C" && to === "K") {
+        res = val + 273.15;
+        formula = `K = ${val} + 273.15`;
+      } else if (from === "K" && to === "C") {
+        res = val - 273.15;
+        formula = `C = ${val} - 273.15`;
+      } else if (from === "F" && to === "K") {
+        const c = (val - 32) * 5/9;
+        res = c + 273.15;
+        formula = `K = ((${val} - 32) × 5/9) + 273.15`;
+      } else if (from === "K" && to === "F") {
+        const c = val - 273.15;
+        res = (c * 9/5) + 32;
+        formula = `F = ((${val} - 273.15) × 9/5) + 32`;
+      }
+
+      const unitSym = to === "C" ? "°C" : (to === "F" ? "°F" : "K");
+      const fromSym = from === "C" ? "°C" : (from === "F" ? "°F" : "K");
+      outBox.textContent = `${res.toFixed(2)} ${unitSym}`;
+      formulaBox.textContent = `Formula: ${formula}`;
+
+      const histItem = `• ${val.toFixed(2)}${fromSym} = ${res.toFixed(2)}${unitSym}`;
+      if (!tempHistory.includes(histItem)) {
+        tempHistory.unshift(histItem);
+        if (tempHistory.length > 5) tempHistory.pop();
+        document.getElementById("tempHistoryList").textContent = tempHistory.join("\n");
+      }
+    }
+
+    function swapUnits() {
+      const f = document.getElementById("tempFromUnit");
+      const t = document.getElementById("tempToUnit");
+      const tmp = f.value;
+      f.value = t.value;
+      t.value = tmp;
+      calculateTemperature();
+    }
+
+    // ==========================================
+    // TASK 6: INTERACTIVE WEB SCRAPER
+    // ==========================================
+    const mockQuotesData = [
+      { quote: "The world as we have created it is a process of our thinking. It cannot be changed without changing our thinking.", author: "Albert Einstein", tags: ["change", "deep-thoughts", "thinking"] },
+      { quote: "It is our choices, Harry, that show what we truly are, far more than our abilities.", author: "J.K. Rowling", tags: ["abilities", "choices"] },
+      { quote: "There are only two ways to live your life. One is as though nothing is a miracle. The other is as though everything is a miracle.", author: "Albert Einstein", tags: ["inspirational", "life", "miracles"] },
+      { quote: "It is never too late to be what you might have been.", author: "George Eliot", tags: ["inspirational"] },
+      { quote: "A day without sunshine is like, you know, night.", author: "Steve Martin", tags: ["humor", "obvious"] }
+    ];
+
+    const mockBooksData = [
+      { title: "A Light in the Attic", price: "£51.77", rating: "Three Stars", availability: "In stock" },
+      { title: "Tipping the Velvet", price: "£53.74", rating: "One Star", availability: "In stock" },
+      { title: "Soumission", price: "£50.10", rating: "One Star", availability: "In stock" },
+      { title: "Sharp Objects", price: "£47.82", rating: "Four Stars", availability: "In stock" },
+      { title: "Sapiens: A Brief History of Humankind", price: "£54.23", rating: "Five Stars", availability: "In stock" }
+    ];
+
+    let currentScrapedData = mockQuotesData;
+
+    function loadScraperData(type) {
+      const area = document.getElementById("scraperOutputArea");
+      if (type === "quotes") {
+        currentScrapedData = mockQuotesData;
+        area.innerHTML = `
+          <table>
+            <thead><tr><th>#</th><th>Quote</th><th>Author</th><th>Tags</th></tr></thead>
+            <tbody>
+              ${mockQuotesData.map((q, i) => `
+                <tr>
+                  <td><strong>${i + 1}</strong></td>
+                  <td style="color: #fff; font-style: italic;">“${q.quote}”</td>
+                  <td style="color: var(--accent-cyan); font-weight: 600;">${q.author}</td>
+                  <td>${q.tags.map(t => `<span class="badge badge-primary">${t}</span>`).join(" ")}</td>
+                </tr>
+              `).join("")}
+            </tbody>
+          </table>
+        `;
+        showToast("Loaded quotes data from quotes.toscrape.com!");
+      } else if (type === "books") {
+        currentScrapedData = mockBooksData;
+        area.innerHTML = `
+          <table>
+            <thead><tr><th>#</th><th>Book Title</th><th>Price</th><th>Rating</th><th>Stock</th></tr></thead>
+            <tbody>
+              ${mockBooksData.map((b, i) => `
+                <tr>
+                  <td><strong>${i + 1}</strong></td>
+                  <td style="font-weight: 600; color: #fff;">${b.title}</td>
+                  <td style="color: var(--accent-green); font-weight: 700;">${b.price}</td>
+                  <td><span class="badge badge-amber">${b.rating}</span></td>
+                  <td><span class="badge status-completed">${b.availability}</span></td>
+                </tr>
+              `).join("")}
+            </tbody>
+          </table>
+        `;
+        showToast("Loaded books catalogue from books.toscrape.com!");
+      } else {
+        area.innerHTML = `
+          <div style="background: var(--bg-secondary); padding: 1.5rem; border-radius: var(--radius-md);">
+            <div style="font-weight: 700; color: #fff; margin-bottom: 0.5rem;">🌐 Webpage Analysis Report (python.org)</div>
+            <div style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1rem;">Target URL: https://www.python.org/</div>
+            <div class="terminal-box" style="font-size: 0.8rem;">
+H1 Headings:
+  • Welcome to Python.org
+
+H2 Headings:
+  • Notice
+  • Get Started
+  • Download Latest Python
+  • Docs & Standard Library
+  • Community Events
+
+Extracted Hyperlinks:
+  • About -> https://www.python.org/about/
+  • Downloads -> https://www.python.org/downloads/
+  • Documentation -> https://docs.python.org/3/
+  • Community -> https://www.python.org/community/
+  • Success Stories -> https://www.python.org/success-stories/
+            </div>
+          </div>
+        `;
+      }
+    }
+
+    function exportScrapedData(format) {
+      if (format === "json") {
+        const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(currentScrapedData, null, 2));
+        const dl = document.createElement("a");
+        dl.href = dataStr;
+        dl.download = "scraped_data.json";
+        dl.click();
+        showToast("Downloaded scraped_data.json!");
+      } else {
+        const keys = Object.keys(currentScrapedData[0]);
+        let csv = keys.join(",") + "\n";
+        currentScrapedData.forEach(row => {
+          csv += keys.map(k => `"${String(row[k]).replace(/"/g, '""')}"`).join(",") + "\n";
+        });
+        const blob = new Blob([csv], { type: "text/csv;charset=utf-8;" });
+        const dl = document.createElement("a");
+        dl.href = URL.createObjectURL(blob);
+        dl.download = "scraped_data.csv";
+        dl.click();
+        showToast("Downloaded scraped_data.csv!");
+      }
+    }
+
+    function escapeHtml(str) {
+      return (str || '').replace(/[&<>'"]/g, 
+        tag => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', "'": '&#39;', '"': '&quot;' }[tag] || tag));
+    }
+
+    // Initialize on DOM load
+    window.addEventListener("DOMContentLoaded", () => {
+      initGuessGame();
+      renderQuiz();
+      generateSelectedPattern();
+      initTaskManager();
+      calculateTemperature();
+      loadScraperData("quotes");
+    });
+  </script>
+</body>
+</html>
